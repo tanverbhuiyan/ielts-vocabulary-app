@@ -35,7 +35,7 @@
         row.appendChild(App.el("span", { className: "word-idx", textContent: String(i + 1).padStart(2, "0") }));
         var link = App.el("a", {
           className: "word-name",
-          href: "/learn?word_id=" + w.id + "&difficulty=" + encodeURIComponent(w.difficulty || "all"),
+          href: "learn.html?word_id=" + w.id + "&difficulty=" + encodeURIComponent(w.difficulty || "all"),
           textContent: w.word,
           style: "color:inherit;text-decoration:none;flex:1;"
         });
@@ -65,7 +65,7 @@
       if (title === "Need Practice") {
         var practice = App.el("a", {
           className: "btn btn-primary btn-block",
-          href: "/learn?mode=review&difficulty=all",
+          href: "learn.html?mode=review&difficulty=all",
           textContent: "Practice These Words",
           style: "margin-top:12px;"
         });
@@ -89,7 +89,7 @@
       renderSection(wrap, "Need Practice", needPractice,
         "Nothing to review",
         "Words you mark \u201cNeed Practice\u201d while learning will appear here.",
-        { href: "/learn?difficulty=easy", text: "Start Learning" });
+        { href: "learn.html?difficulty=easy", text: "Start Learning" });
       renderSection(wrap, "Learned Words", learned,
         "No learned words yet",
         "Words you mark \u201cI Know This\u201d while learning will appear here.",

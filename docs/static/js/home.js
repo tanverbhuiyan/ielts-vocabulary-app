@@ -56,7 +56,7 @@
 
       var btn = App.el("a", {
         className: "btn btn-primary btn-block",
-        href: "/learn?difficulty=" + lvl.key,
+        href: "learn.html?difficulty=" + lvl.key,
         textContent: s.learned > 0 && s.learned < s.total ? "Continue" : "Start Learning"
       });
 
@@ -136,11 +136,16 @@
     }
     var cont = App.el("a", {
       className: "btn btn-secondary btn-block",
-      href: "/learn?difficulty=" + next,
+      href: "learn.html?difficulty=" + next,
       textContent: "Continue Learning"
     });
     card.appendChild(cont);
     host.appendChild(card);
+  }
+
+  function clearLoading(host) {
+    var l = host.querySelector(".loading");
+    if (l) l.remove();
   }
 
   function renderMotivation(host) {
@@ -152,6 +157,7 @@
   }
 
   function renderError(host) {
+    clearLoading(host);
     var box = App.el("div", { className: "empty" });
     box.appendChild(App.el("h2", { textContent: "Could not load vocabulary" }));
     box.appendChild(App.el("p", { textContent: "Something went wrong. Please try again." }));
@@ -167,6 +173,7 @@
     if (!hero || !main) return;
 
     fetchAllWords().then(function (words) {
+      clearLoading(main);
       var stats = Store.computeStats(words);
       renderLevels(main, stats);
       renderOverall(main, stats);

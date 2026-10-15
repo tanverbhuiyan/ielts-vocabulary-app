@@ -276,7 +276,7 @@
         if (!list.length) {
           showEmpty(
             "You have no words marked for review. Tap \u201cNeed Practice\u201d on a flashcard to add words here.",
-            "Start Learning", "/learn?difficulty=" + difficulty
+            "Start Learning", "learn.html?difficulty=" + difficulty
           );
           return;
         }

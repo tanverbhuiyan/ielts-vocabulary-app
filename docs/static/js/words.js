@@ -17,7 +17,7 @@
 
   function learnHref(w) {
     var diff = w.difficulty || "all";
-    return "/learn?word_id=" + w.id + "&difficulty=" + encodeURIComponent(diff);
+    return "learn.html?word_id=" + w.id + "&difficulty=" + encodeURIComponent(diff);
   }
 
   function renderRows(host, words) {
